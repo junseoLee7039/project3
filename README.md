@@ -11,8 +11,8 @@
 
 <p> 영앤 리치 Class 2nd 프로젝트는 단순 수익 창출을 넘어서, 미래의 가능성을 바라보며, 그 중심에 김민규씨를 위치시키는 시작이자 도전입니다.</p>
 
-홍보용 전체적인 인터페이스
-<br/><br/>
+## 홍보용 전체적인 인터페이스
+
 ![1](https://github.com/junseoLee7039/project3/assets/121421082/b2bae109-10f7-49ad-a6c0-d684ae5b9317)
 ![4](https://github.com/junseoLee7039/project3/assets/121421082/f9a13314-8dae-42d3-94fa-072d4d6309d1)
 ![5](https://github.com/junseoLee7039/project3/assets/121421082/eb9738c2-b2c9-4e5d-b01a-3673490f8b3b)
