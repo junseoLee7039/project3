@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='animation.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Open Graph meta tags for image sharing -->
+    <meta property="og:title" content="Parallax Scroll Site">
+    <meta property="og:description" content="Explore the interactive Halloween Party project and Immerse yourself in the spooky ambiance of Halloween.">
+    <meta property="og:image" content="https://drive.google.com/uc?id=1GFbBHTi7w8weRVqLJ7bkofezEEGg4U30">
+    <meta property="og:type" content="website">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: url("{{ url_for('static', filename='images/header.jpg') }}");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav img{
+            width: 150px;
+        }
+        .nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        .nav-links ul{
+            list-style: none;
+        }
+        .nav-links ul li{
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+        .nav-links ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .nav-links ul li::after{
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            margin: auto;
+            transition: width 0.3s;
+        }
+        .nav-links ul li:hover::after{
+            width: 100%;
+        }
+        nav .fa{
+            display: none;
+        }
+        @media(max-width: 700px){
+            .nav-links ul li{
+                display: block;
+            }
+            .nav-links{
+                position: absolute;
+                background: #f44336;
+                height: 100vh;
+                width: 200px;
+                top: 0;
+                right: -200px;
+                text-align: left;
+                z-index: 2;
+                transition: 1s;
+            }
+            nav .fa{
+                display: block;
+                color: #fff;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            } 
+            .nav-links ul{
+                padding: 30px;
+            }
+        }
+        h1{
+            font-size: 36px;
+            font-weight: 600;
+        }
+        p{
+            color: #777;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            padding: 10px;
+        }
+        .footer{
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .footer h4{
+            margin-bottom: 25px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        .icons .fa{
+            color: #f44336;
+            margin: 0 13px;
+            cursor: pointer;
+            padding: 18px 0;
+        }
+        .fa-heart-o{
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/logo3.png') }}" alt="logo"></a>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('test') }}">exe_download</a></li>
+                    <li><a href="{{ url_for('services') }}">Services</a></li>
+                    <li><a href="{{ url_for('review') }}">Review</a></li>
+                    {% if 'user_id' in session %}
+                        <li><a href="{{ url_for('community') }}">Community</a></li>
+                        <li><p style="color: #fff;">{{ session['user_name'] }} 님 환영합니다.</p></li>
+                        <li><a href="{{ url_for('logout') }}">로그아웃</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('login') }}">로그인</a></li>
+                        <li><a href="{{ url_for('signup') }}">회원가입</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+        </nav>
+        <div class="handphone">
+            <img src="{{ url_for('static', filename='images/handphone-ultra.png') }}" alt="handphone" style="width: 300px;">
+        </div>
+    </section>  
+    <script>
+        function showMenu() {
+            document.getElementById('nav-links').style.right = "0";
+        }
+        function hideMenu() {
+            document.getElementById('nav-links').style.right = "-200px";
+        }
+        
+        window.addEventListener('scroll', function() {
+            var handphone = document.querySelector('.handphone img');
+            var scrollTop = window.scrollY;
+            var threshold = 500;
+            if (scrollTop > threshold) {
+                handphone.style.opacity = 1;
+            } else {
+                handphone.style.opacity = 0;
+            }
+        });
+    </script>  
+</body>
+</html>

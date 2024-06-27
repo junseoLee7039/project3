@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='page1.css') }}">
+    <script defer src="{{ url_for('static', filename='page1.js') }}"></script>
+</head>
+<body>
+    <h2>전지전능한 Crypto 비트코인 서비스</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="{{ url_for('signup') }}" method="POST">
+                <h1>계정 만들기</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>또는 등록을 위해 이메일을 사용하세요</span>
+                <input type="text" placeholder="Name" name="name" />
+                <input type="tel" placeholder="Tel" name="tel" />
+                <input type="email" placeholder="Email" name="mail" />
+                <input type="password" placeholder="Password" name="password" />
+                <input type="password" placeholder="Password Check" name="password-check" />
+                <button type="submit">회원가입</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <h1>환영합니다.</h1>
+                    <p>로그인 후 무궁무진한 비트코인 세상을 펼쳐보세요.</p>
+                    <a href="{{ url_for('login') }}">
+                        <button class="ghost" id="signIn">로그인</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
