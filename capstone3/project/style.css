@@ -1,0 +1,824 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+
+}
+
+nav .logo img {
+    height: 80px;
+    margin-left: 100px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0px;
+    margin-left: auto; /* Add this to push nav-links to the right */
+}
+
+nav .nav-links li {
+    margin-right: 40px;
+    display: inline;
+}
+
+nav .nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 0px 0px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav .nav-links li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: transform 0.5s ease-in-out;
+}
+/*-------------------------------------------------------------------------------page 1*/
+#page1 {
+    background-image: url('images/page1-4.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; 
+}
+.page1-header {
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.page1-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.page1-header p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+.page1-handphone img {
+    position: absolute;
+}
+.page1-left {
+    width: 300px;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.page1-right {
+    width: 300px;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.page1-bottom-right {
+    width: 300px;
+    right: 20%;
+    bottom: 10%;
+}
+.page1-buttons {
+    position: absolute;
+    bottom: 32%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.page1-buttons .explore-btn,
+.page1-buttons .video-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 10px;
+    text-decoration: none;
+    background-color: transparent;
+}
+.page1-buttons .explore-btn:hover,
+.page1-buttons .video-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+.page1-buttons .video-btn i {
+    margin-right: 10px;
+}
+/*--------------------------------------------------------------------------------page 2*/
+#page2 {
+    background-image: url('images/page1-4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.page2-header {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center; 
+    padding: 0 50px;
+}
+.page2-header img {
+    margin-top: 150px;
+    margin-left: -150px;
+    width: 1100px;
+    height: auto;
+    max-height: 80vh; 
+    margin-right: 100px; 
+}
+.page2-content {
+    text-align: left;
+    z-index: 2;
+    color: #fff;
+    margin-left: -10px;
+}
+.page2-main-title {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+}
+.page2-sub-title {
+    font-size: 1.2em;
+    margin-bottom: 100px;
+}
+.page2-description {
+    font-size: 1.0em;
+}
+/*----------------------------------------------------------------------- page 3*/
+.page3-header {
+            position: relative;
+            background-image: url('images/page1-4.jpg'); /* 예시 이미지 URL */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+        
+        .page3-content {
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+        }
+        .page3-main-title {
+            color: #fff;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .page3-description {
+            font-size: 1.5em;
+        }
+        .page3-steps {
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .page3-step {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(50% - 10px);
+            box-sizing: border-box;
+        }
+        .page3-step-number {
+            background-color: #fff;
+            color: #000;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .page3-images {
+            display: flex;
+            flex-direction: row; 
+            gap: 50px;
+        }
+        
+        .page3-image-container {
+            margin-right: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .page3-crypto-image-1 {
+            width: 250px;
+            border-radius: 10px;
+            margin-top: 0px;
+        }
+        
+        .page3-crypto-image-2 {
+            width: 250px;
+            border-radius: 10px;
+            margin-top: 0px;
+        }
+        
+        .page3-image-container:first-child {
+            margin-top: 0px; 
+        }
+        
+        .page3-image-container:last-child {
+            margin-top: 250px; 
+        }
+        
+
+/*------------------------------------ page 4*/
+#page4 {
+    position: relative;
+    background-image: url(images/page4-2.png);
+    background-position: center bottom;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+}
+
+.page4-title {
+    text-align: center;
+    z-index: 1; 
+}
+.page4-title hr {
+    border: 0;
+    width: 10%;
+    height: 5px;
+    background-color: #000; /* 검은색 */
+    margin-bottom: 10px;
+}
+.page4-title img{
+    width:1500px;
+    height: auto;
+    margin-top: -150px;
+}
+
+.page4-title h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+.page4-title p{
+    margin-top: -100px;
+}
+.page4-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; 
+    width: 100%;
+    height: 50%; 
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; 
+    background-image: url(images/page4-2.png); 
+    z-index: -1;
+}
+/*---------------------page5*/
+.page5 .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+.page5 .background-section {
+    background-image: url('images/page5.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    margin-left: -150px;
+}
+
+.page5 .content-section {
+    grid-column: 2 / 3; /* Ensure it takes the right 50% */
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+    height: 100%;
+}
+
+.page5 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+}
+
+
+.page5 .crypto-images {
+    display: flex;
+    justify-content: flex-start;
+    gap: 170px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 0;
+    top: 200px;
+    z-index: 4;
+}
+
+.page5 .crypto-images img {
+    margin-left: -100px;
+    width: 260px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.page5 .crypto-info {
+    max-width: 700px;
+    margin-left: 60px;
+    margin-top: 80px;
+}
+
+.page5 .crypto-info h2 {
+    font-size: 60px;
+    margin-bottom: 0px;
+}
+
+.page5 .crypto-info hr {
+    border: 0;
+    height: 5px;
+    background-color: #000; /* 검은색 */
+    margin-bottom: 30px;
+}
+
+.page5 .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page5 .info-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.page5 .number {
+    margin-top: 50px;
+    font-size: 45px;
+    margin-right: 10px;
+    color: #ffffff;
+    background-color: #20232a;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page5 .info-item p {
+    color: #333;
+    margin-top: 80px;
+}
+/*------------------------------ page 5*/
+#page6 {
+    background-color: #fff;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.page6-intro hr {
+    display: block; /* Ensure the hr respects width */
+    width: 30%; /* Increase the width */
+    height: 3px; /* Increase the height */
+    border: none; /* Remove default border */
+    background-color: black; /* Set the color */
+    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+
+}
+
+.page6-main {
+    padding: 3rem 0;
+    text-align: center;
+    width: 100%;
+
+}
+
+.page6-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.page6-services-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.page6-image-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.page6-intro h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    text-align: left;
+}
+
+.page6-services {
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.page6-service-item1, .page6-service-item2 {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 45%; /* Adjust width to fit all items better */
+    min-height: 400px; 
+    margin: 5rem 0;
+    text-align: left;
+}
+
+.page6-service-item2 {
+    background-color: black;
+}
+
+.page6-service-item1 h3, .page6-service-item1 p, .page6-service-item1 .learn-more {
+    color: black;
+}
+
+.page6-service-item2 h3, .page6-service-item2 p, .page6-service-item2 .learn-more {
+    color: white;
+}
+
+.page6-service-item1 .page6-icon1, .page6-service-item2 .page6-icon2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 3rem;
+}
+
+.page6-service-item1 .page6-icon1 {
+    background-color: black;
+}
+
+.page6-service-item2 .page6-icon2 {
+    background-color: #f0f0f0;
+}
+
+.page6-icon1 i, .page6-icon2 i {
+    font-size: 2rem;
+    color: white;
+}
+
+.page6-service-item2 .page6-icon2 i {
+    color: black;
+}
+
+.page6-service-image {
+    width: 100%; /* Use full width of the image container */
+    height: auto;;
+    text-align: right;
+    margin: 7rem 0;
+}
+
+.page6-service-image img {
+    width: 100%;
+    height: auto;
+    max-width: 68%; /* Make sure the image doesn't exceed the container width */
+}
+
+/*----------------------------------------------- page 7*/
+
+
+
+#page7-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3.5%;
+}
+.page7 {
+    background-color: #fff;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.page7 .intro hr {
+    display: block; /* Ensure the hr respects width */
+    width: 100px; /* Increase the width */
+    height: 3px; /* Increase the height */
+    border: none; /* Remove default border */
+    background-color: black; /* Set the color */
+    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.page7 main {
+    padding: 2rem 0;
+    text-align: center;
+    width: 100%;
+}
+
+.page7 .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.page7 .services-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.page7 .image-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.page7 .intro h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.page7 .services {
+    display: flex;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.page7 .service-item1, .page7 .service-item2 {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 45%; /* Adjust width to fit all items better */
+    min-height: 400px; 
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.page7 .service-item2 {
+    background-color: black;
+}
+
+.page7 .service-item1 h3, .page7 .service-item1 p, .page7 .service-item1 .learn-more {
+    color: black;
+}
+
+.page7 .service-item2 h3, .page7 .service-item2 p, .page7 .service-item2 .learn-more {
+    color: white;
+}
+
+.page7 .service-item1 .icon1, .page7 .service-item2 .icon2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 3rem;
+}
+
+.page7 .service-item1 .icon1 {
+    background-color: black;
+}
+
+.page7 .service-item2 .icon2 {
+    background-color: #f0f0f0;
+}
+
+.page7 .icon1 i, .page7 .icon2 i {
+    font-size: 2rem;
+    color: white;
+}
+
+.page7 .service-item2 .icon2 i {
+    color: black;
+}
+
+.page7 .service-image {
+    width: 100%; /* Use full width of the image container */
+    height: auto;
+    text-align: right;
+    margin: 2rem 0;
+}
+
+.page7 .service-image img {
+    width: 100%;
+    height: auto;
+    max-width: 75%; /* Make sure the image doesn't exceed the container width */
+}
+
+
+
+
+.page8-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+}
+
+.page8-images {
+    display: flex;
+    flex-direction: row; 
+    gap: 25px;
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+.page8-image-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page8-crypto-image-1, .page8-crypto-image-2 {
+    width: 350px;
+    border-radius: 10px;
+    margin-top: 0px;
+}
+
+.page8-image-container:first-child {
+    margin-top: 250px; 
+}
+
+.page8-image-container:last-child {
+    margin-top: 0px; 
+}
+
+.page8-text-section {
+    max-width: 600px;
+    margin-right: 100px;
+}
+
+.page8-text-section h1 {
+    font-size: 60px;
+}
+
+.page8-text-section hr {
+    border: 3px solid #000;
+    width: 100px;
+    margin-left: 0;
+}
+
+.page8-updates {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    
+}
+
+.page8-update {
+    text-align: center;
+}
+
+.page8-update h2 {
+    font-size: 2rem;
+}
+
+.page8-update p {
+    margin: 20px 0 10px;
+}
+
+.page8-description {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #555;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.page9-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    margin-left: 250px;
+    margin-bottom: 150px;
+}
+
+.page9-text {
+    position: absolute;
+    z-index: 3;
+    color: black;
+    flex: 1;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.page9-text h1 {
+    font-size: 60px;
+}
+
+.page9-text p {
+    font-size: 28px;
+}
+
+.page9-text hr {
+    border: 3px solid #000;
+    width: 100px;
+    margin-left: 0;
+}
+.page9-images {
+    position: relative;
+    margin-right: -200px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page9-images::before {
+    content: "";
+    position: absolute;
+    width: 650px; /* Adjust the size as needed */
+    height: 350px; /* Adjust the size as needed */
+    background-color: black;
+    border-top-left-radius: 1000px;
+    border-top-right-radius: 1000px;
+    bottom: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.page9-images img {
+    width: 1450px; /* Explicitly set the width */
+    height: 850px; /* Maintain aspect ratio */
+    max-width: none; /* Remove max-width constraint */
+    position: relative;
+    z-index: 2;
+    margin-bottom: -170px;
+    margin-left: -300px;
+}

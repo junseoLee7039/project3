@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .page5 .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .page5 .background-section {
+            background-image: url('images/page5.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page5 .content-section {
+            padding: 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background-color: rgba(244, 244, 244, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page5 .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .page5 .crypto-images {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+            position: absolute;
+            left: 0;
+            top: 200px;
+            z-index: 4;
+        }
+        
+        .page5 .crypto-images img {
+            width: 260px;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        .page5 .crypto-info {
+            max-width: 700px;
+            margin-left: 10px;
+            margin-top: 100px;
+        }
+        
+        .page5 .crypto-info h2 {
+            font-size: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .page5 .crypto-info hr {
+            border: 0;
+            height: 5px;
+            background-color: #000; /* 검은색 */
+            margin-bottom: 30px;
+        }
+
+        .page5 .info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .page5 .info-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .page5 .number {
+            margin-top: 50px;
+            font-size: 45px;
+            margin-right: 10px;
+            color: #ffffff;
+            background-color: #20232a;
+            border-radius: 100%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page5 .info-item p {
+            color: #333;
+            margin-top: 80px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="page page5">
+        <div class="grid-container">
+            <div class="background-section">
+                <div class="crypto-images">
+                    <img src="images/test.png" alt="Crypto Image 1">
+                    <img src="images/test.png" alt="Crypto Image 2">
+                    <img src="images/test.png" alt="Crypto Image 3">
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="container">
+                    <div class="crypto-info">
+                        <h2>Crypto의 전망</h2>
+                        <hr>
+                        <div class="info">
+                            <div class="info-item">
+                                <span class="number">01</span>
+                                <p>riwejfweijfiweojwfojpfjopdjposjdkpiopdjgkijpjgjpgrjgiprjgpiorgopjrgoparkopogopropafpkfgjkfkgjfkgrkgrprpifiprgopkrgopkrgprkogrkogrkogrkpg</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="number">02</span>
+                                <p>fopekfpoekpoefkpkeofkpofekfklmdkgmdgkdmklfmklfdmfkldsmklvmfsdklmfsdkmlfsdmkfslmdfsmklfwsdmkfewkpfmwekmwmpwgmknwrmknwrmkgmwrnkmgwmwrm</p>
+                            </div>
+                            <div class="info-item">
+                                <span class="number">03</span>
+                                <p>fekgopkrwprgmpwogpvdwmvlkmsldklfmwekpffmeplfmwelpkflwekfkpweofkweofkwefwpkofwpkefkpowefkpowefkopekfowkefpowkefqlefkekfpeofk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

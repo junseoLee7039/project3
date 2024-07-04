@@ -1,0 +1,42 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+#page1 {
+    background-image: url('../images/page1-4.jpg');
+}
+
+#page2 {
+    background-image: url('../images/page1-4.jpg');
+}
+
+#page3 {
+    background-color: #fdffb6;
+}
+
+#page4{
+    background-color: #fdffb6;
+}
+
+#page5 {
+    background-color: #fdffb6;
+}
+
+#page6 {
+    background-color: #fdffb6;
+}
+
+

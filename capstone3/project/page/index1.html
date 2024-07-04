@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Open Graph meta tags for image sharing -->
+    <meta property="og:title" content="Parallax Scroll Site">
+    <meta property="og:description" content="Explore the interactive Halloween Party project and Immerse yourself in the spooky ambiance of Halloween.">
+    <meta property="og:image" content="https://drive.google.com/uc?id=1GFbBHTi7w8weRVqLJ7bkofezEEGg4U30">
+    <meta property="og:type" content="website">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .page1-header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: url("images/page1-4.jpg");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        .page1-nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .page1-nav img{
+            width: 150px;
+        }
+        .page1-nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        .page1-nav-links ul{
+            list-style: none;
+        }
+        .page1-nav-links ul li{
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+        .page1-nav-links ul li a{
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .page1-nav-links ul li::after{
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            margin: auto;
+            transition: width 0.3s;
+        }
+        .page1-nav-links ul li:hover::after{
+            width: 100%;
+        }
+        .page1-nav .fa{
+            display: none;
+        }
+        @media(max-width: 700px){
+            .page1-nav-links ul li{
+                display: block;
+            }
+            .page1-nav-links{
+                position: absolute;
+                background: #f44336;
+                height: 100vh;
+                width: 200px;
+                top: 0;
+                right: -200px;
+                text-align: left;
+                z-index: 2;
+                transition: 1s;
+            }
+            .page1-nav .fa{
+                display: block;
+                color: #fff;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            } 
+            .page1-nav-links ul{
+                padding: 30px;
+            }
+        }
+        .page1-h1{
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .page1-p{
+            color: #777;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            padding: 10px;
+        }
+        .page1-footer{
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+        }
+        .page1-footer h4{
+            margin-bottom: 25px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        .page1-icons .fa{
+            color: #f44336;
+            margin: 0 13px;
+            cursor: pointer;
+            padding: 18px 0;
+        }
+        .fa-heart-o{
+            color: #f44336;
+        }
+        .page1-handphone img{
+            position: absolute;
+        }
+        .page1-left{
+            width: 450px;
+            left: 5%;
+            top: 30%;
+            transform: translateY(-50%);
+        }
+        .page1-right{
+            width: 450px;
+            right: 5%;
+            top: 30%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        .page1-bottom-right{
+            height: auto;
+            width: 370px;
+            right: 20%;
+            bottom: -25%;
+        }
+        .page1-buttons{
+            position: absolute;
+            right: 60%;
+            margin-bottom: 10%;
+            bottom: 5%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .page1-buttons .page1-explore-btn,
+        .page1-buttons .page1-video-btn {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            background-color: transparent;
+        }
+        .page1-buttons .page1-explore-btn:hover,
+        .page1-buttons .page1-video-btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .page1-buttons .page1-video-btn {
+            display: flex;
+            align-items: center;
+        }
+        .page1-buttons .page1-video-btn i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="page1-header">
+        <nav class="page1-nav">
+            <a href="index.html"><img src="images/logo3.png" alt="logo"></a>
+            <div class="page1-nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="exe_download.html">exe_download</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="review.html">Review</a></li>
+                    <li><a href="login.html">로그인</a></li>
+                    <li><a href="signup.html">회원가입</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+        </nav>
+        <div class="page1-handphone">
+            <img class="page1-left" src="images/page1-1.png" alt="handphone">
+            <img class="page1-right" src="images/page1-1.png" alt="handphone">
+            <img class="page1-bottom-right" src="images/page1-2.png" alt="handphone">
+        </div>
+        <div class="page1-buttons">
+            <a href="#" class="page1-explore-btn">Explore Now</a>
+            <a href="#" class="page1-video-btn"><i class="fa fa-play"></i> 비디오 재생</a>
+        </div>
+    </section>  
+    <script>
+        function showMenu() {
+            document.getElementById('nav-links').style.right = "0";
+        }
+        function hideMenu() {
+            document.getElementById('nav-links').style.right = "-200px";
+        }
+    </script>  
+</body>
+</html>

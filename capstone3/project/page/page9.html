@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Scroll</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .page9-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .page9-text {
+            position: relative;
+            z-index: 3;
+            color: black;
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .page9-text h1 {
+            font-size: 60px;
+        }
+
+        .page9-text p {
+            font-size: 28px;
+        }
+
+        .page9-images {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page9-images::before {
+            content: "";
+            position: absolute;
+            width: 700px; /* Adjust the size as needed */
+            height: 350px; /* Adjust the size as needed */
+            background-color: black;
+            border-top-left-radius: 1000px;
+            border-top-right-radius: 1000px;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .page9-images img {
+            width: 1200px; /* Explicitly set the width */
+            height: auto; /* Maintain aspect ratio */
+            max-width: none; /* Remove max-width constraint */
+            position: relative;
+            z-index: 2;
+            margin-left: -300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page" id="page9">
+        <div class="page9-content">
+            <div class="page9-text">
+                <h1>CONTACT</h1>
+                <hr>
+                <br>
+                <p><i class="fa fa-phone"></i> +123-456-789</p>
+                <p><i class="fa fa-globe"></i> www.crypto.com</p>
+                <p><i class="fa fa-envelope"></i> gyu@crypto.com</p>
+                <p><i class="fa fa-map-marker"></i> 123 AnyWhere.St Any City ST 12345</p>
+            </div>
+            <div class="page9-images">
+                <img src="images/page9.png" alt="Crypto Image">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
