@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            padding: 0 10%;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav img {
+            margin-left: -70px;
+            width: 140px;
+        }
+
+        .nav-links {
+            flex: 1;
+            margin-right: 200px;
+            text-align: right;
+        }
+
+        .nav-links ul {
+            list-style: none;
+        }
+
+        .nav-links ul li {
+            display: inline-block;
+            padding: 20px 10px;
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .nav-links ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            margin: auto;
+            transition: width 0.5s;
+        }
+
+        .nav-links ul li:hover::after {
+            width: 100%;
+        }
+
+        nav .fa {
+            display: none;
+        }
+
+    
+        .container {
+            margin-top: 200px;
+            width: 100%;
+            margin: 80px auto 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .top-bar .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-bar .menu a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .top-bar .search-bar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .top-bar .search-bar input, .top-bar .search-bar select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .top-bar .search-bar button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .announcements {
+            padding: 10px 0;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .announcements a {
+            display: block;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .announcements a span {
+            color: #888;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .forum-list {
+            margin-top: 20px;
+        }
+
+        .forum-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .forum-list table th, .forum-list table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .forum-list table th {
+            background-color: #f5f5f5;
+        }
+
+        .forum-list table td:first-child {
+            width: 50px;
+            text-align: center;
+        }
+
+        .forum-list table td:nth-child(2) a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .add-post-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .add-post-button button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='images/page1-3.png') }}" alt="logo"></a>
+        <div class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('review') }}">Review</a></li>
+            {% if 'user_id' in session %}
+                <li><a href="{{ url_for('community') }}">Community</a></li>
+                <li><p style="color: #fff;">{{ session['user_name'] }} 님 환영합니다.</p></li>
+                <li><a href="{{ url_for('logout') }}">로그아웃</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">로그인</a></li>
+                <li><a href="{{ url_for('signup') }}">회원가입</a></li>
+            {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="announcements">
+            <a href="#">자유게시판 이용안내 <span>2일 전 kain</span></a>
+        </div>
+        <div class="forum-list">
+            <table id="forumTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>이미지</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody id="forumTableBody">
+                    <!-- Forum posts will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <button>이전</button>
+            <button>다음</button>
+        </div>
+        <div class="add-post-button">
+            <button id="addPostButton">새 게시물 작성</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('addPostButton').addEventListener('click', function() {
+            window.location.href = '/community2';
+        });
+    
+        function loadPosts() {
+            fetch('/get_posts')
+                .then(response => response.json())
+                .then(posts => {
+                    const forumTableBody = document.getElementById('forumTableBody');
+                    forumTableBody.innerHTML = ''; // Clear existing posts
+    
+                    posts.forEach(post => {
+                        const row = document.createElement('tr');
+    
+                        const idCell = document.createElement('td');
+                        idCell.textContent = post.id;
+                        row.appendChild(idCell);
+    
+                        const titleCell = document.createElement('td');
+                        const titleLink = document.createElement('a');
+                        titleLink.href = `/view_post?id=${post.id}`;
+                        titleLink.textContent = post.title;
+                        titleCell.appendChild(titleLink);
+                        row.appendChild(titleCell);
+    
+                        const contentCell = document.createElement('td');
+                        contentCell.textContent = post.content;
+                        row.appendChild(contentCell);
+    
+                        const imageCell = document.createElement('td');
+                        if (post.image) {
+                            const img = document.createElement('img');
+                            img.src = post.image;
+                            img.style.width = '100px';
+                            imageCell.appendChild(img);
+                        }
+                        row.appendChild(imageCell);
+    
+                        const deleteCell = document.createElement('td');
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = '-';
+                        deleteButton.addEventListener('click', function() {
+                            deletePost(post.id);
+                            row.remove();
+                        });
+                        deleteCell.appendChild(deleteButton);
+                        row.appendChild(deleteCell);
+    
+                        forumTableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error loading posts:', error));
+        }
+    
+        function deletePost(postId) {
+            fetch(`/delete_post?id=${postId}`, { method: 'DELETE' })
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`Post with ID ${postId} deleted.`);
+                    } else {
+                        console.error(`Failed to delete post with ID ${postId}.`);
+                    }
+                })
+                .catch(error => console.error('Error deleting post:', error));
+        }
+    
+        document.addEventListener('DOMContentLoaded', loadPosts);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Style the body */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    /* Header/logo Title */
+
+    .header {
+      width: 100%;
+      background-image: url(../images/header.jpg);
+      /* 이미지 경로 수정 */
+      padding: 80px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    /* Increase the font size of the heading */
+    .header h1 {
+      font-size: 40px;
+    }
+
+    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+
+    /* Style the navigation bar links */
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+    }
+
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Active/current link */
+    .navbar a.active {
+      background-color: #666;
+      color: white;
+    }
+
+    /* Column container */
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+    }
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      flex: 30%;
+      background-image: url(../images/sidebar.jpg);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: end;
+      /* 이미지를 왼쪽으로 정렬합니다. */
+    }
+    .side img {
+      display: block;
+      width: 50%;
+      padding: 35px;
+    }
+
+    .header {
+      width: 100%;
+      /* 이미지 경로 수정 */
+      padding: 80px;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Main column */
+    .main {
+      flex: 50%;
+      background-color: white;
+      padding: 20px;
+    }
+
+    /* Fake image, just for this example */
+    .fakeimg {
+      background-color: #aaa;
+      width: 100%;
+      padding: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: #ddd;
+    }
+
+    /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 700px) {
+      .row {
+        flex-direction: column;
+      }
+    }
+
+    /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+    @media screen and (max-width: 400px) {
+      .navbar a {
+        float: none;
+        width: 100%;
+      }
+    }
+
+    .crypto {
+      padding: 100px;
+      text-align: center;
+      font-size: 50px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column; /* 요소들을 세로로 배열 */
+    }
+    
+    .container > div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; /* 요소 사이의 간격 조정 */
+    }
+    
+    .circle {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .circle p {
+      margin: 0;
+    }
+    
+    .circle-label {
+      margin-left: 10px;
+      font-size: 18px;
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>=
+  <div class="row">
+    <div class="side">
+      <img src="images/test.png" alt="">
+      <img src="images/test.png" alt="">
+      <img src="images/test.png" alt="">
+    </div>
+    <div class="main">
+      <div class="crypto">
+        <h2>Crypto의 전망</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <div class="container">
+          <div>
+            <div class="circle">01</div>
+            <span class="circle-label">hello world</span>
+          </div>
+          <br>
+          <div>
+            <div class="circle">02</div>
+            <span class="circle-label">hello world</span>
+          </div>
+          <br>
+          <div>
+            <div class="circle">03</div>
+            <span class="circle-label">hello world</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>

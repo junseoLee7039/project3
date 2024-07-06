@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Scroll</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .nav-links {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nav-links li {
+            display: inline-block; /* 리스트 아이템을 인라인 블록으로 설정 */
+            vertical-align: middle; /* 수직 정렬을 가운데로 */
+            margin: 0 10px; /* 항목 간의 간격 설정 */
+        }
+
+        .nav-links p {
+            display: inline-block; /* p 요소를 인라인 블록으로 설정 */
+            vertical-align: middle; /* 수직 정렬을 가운데로 */
+            margin: 0 10px; /* 항목 간의 간격 설정 */
+            color: #fff; /* 텍스트 색상 설정 */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/page1-3.png') }}" alt="Logo Image">
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('review') }}">Review</a></li>
+            {% if 'user_id' in session %}
+                <li><a href="{{ url_for('community') }}">Community</a></li>
+                <li><p>{{ session['user_name'] }} 님 환영합니다.</p></li>
+                <li><a href="{{ url_for('logout') }}">로그아웃</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">로그인</a></li>
+                <li><a href="{{ url_for('signup') }}">회원가입</a></li>
+            {% endif %}
+        </ul>
+    
+
+        
+        <i class="fa fa-bars" aria-hidden="true" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="page page1-header" id="page1">
+        <h1>Welcome to Crypto <br>Crypto에 오신것을 환영합니다.</h1>
+        <p>암호화폐의 미래를 향한 관문. 우리와 함께 배우고, 투자하고, 성장하세요.</p>
+        <div class="page1-handphone">
+            <img class="page1-left" src="{{ url_for('static', filename='images/page1-1.png') }}" alt="handphone">
+            <img class="page1-right" src="{{ url_for('static', filename='images/page1-1.png') }}" alt="handphone">
+        </div>
+        <div class="page1-buttons">
+            <a href="#" class="explore-btn">Explore Now</a>
+            <a href="#" class="video-btn"><i class="fa fa-play"></i> 비디오 재생</a>
+        </div>
+    </div>
+
+    <div class="page" id="page2">
+        <div class="page2-header">
+            <img src="{{ url_for('static', filename='images/page2.png') }}" alt="Crypto Image">
+            <div class="page2-content">
+                <h1 class="page2-main-title">Crypto는 무엇인가?<hr></h1>
+                <p class="page2-description">Crypto는 최고의 인공지능 기법을 사용하여<br>최고의 암호화폐의 솔루션을 제공합니다.</p>
+                
+            </div>
+        </div>
+    </div>
+    <div class="page3-header" id="page3">
+        <div class="page3-content">
+            <h1 class="page3-main-title">우리 모델의<br>시행착오</h1>
+            <div class="page3-steps">
+                <div class="page3-step">
+                    <div class="page3-step-number">01</div> <h2>데이터의 한계</h2>
+                    <p> AI 모델은 학습 데이터에 의존합니다. 
+                        비트코인 가격은 다양한 데이터 요인에 의한 영향을 받기 때문에, 
+                        다양한 변수를 고려하여 모델을 학습시키는 과정에서 어려움을 겪었습니다.
+                        데이터의 양을 분할하여 여러번 호출하는 방식으로 데이터의 한계 문제를 해소할 수 있었습니다.
+                    </p>
+                </div>
+                <div class="page3-step">
+                    <div class="page3-step-number">02</div> <h2>데이터 최신화</h2>
+                    <p>Crypto 모델은 과거 데이터에 지나치게 의존하여 과적합(overfitting) 문제가 발생했습니다. </p>
+                </div>
+                <div class="page3-step">
+                    <div class="page3-step-number">03</div> <h2>모델 학습시간이 굉장히 오래</h2>
+                    <p>LSTM 모델을 사용하면서 학습 시간이 매우 오래 걸리는 문제가 있었습니다</p>
+                </div>
+                <div class="page3-step">
+                    <div class="page3-step-number">04</div> <h2>이동평균선 지표 추가의 어려움</h2>
+                    <p>비트코인 가격 데이터의 가격이 급변하는 특성 때문에 이동평균선 지표를 추가하는 데 어려움을 겪었습니다.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page3-content">
+            <div class="page3-images">
+                <div class="page3-image-container">
+                    <img src="{{ url_for('static', filename='images/page3.png') }}" alt="Crypto Image 1" class="page3-crypto-image-1">
+                </div>
+                <div class="page3-image-container">
+                    <img src="{{ url_for('static', filename='images/page3.png') }}" alt="Crypto Image 2" class="page3-crypto-image-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page4">
+        <div class="page4-title">
+            <h1>우리의 포트폴리오</h1>
+            <hr>
+            <img src="{{ url_for('static', filename='images/page4.png') }}" alt="">
+            <p></p>
+        </div>
+    </div>
+
+    <!--<script src="{{ url_for('static', filename='scripts.js') }}"></script>-->
+    
+
+    <div class="page" id="page5">
+        <div class="page page5">
+            <div class="grid-container">
+                <div class="background-section">
+                    <div class="crypto-images">
+                        <img src="{{ url_for('static', filename='images/test.png') }}" alt="Crypto Image 1">
+                        <img src="{{ url_for('static', filename='images/test.png') }}" alt="Crypto Image 2">
+                        <img src="{{ url_for('static', filename='images/test.png') }}" alt="Crypto Image 3">
+                    </div>
+                </div>
+                <div class="content-section">
+                    <div class="container">
+                        <div class="crypto-info">
+                            <h2>Crypto의 전망</h2>
+                            <hr>
+                            <div class="info">
+                                <div class="info-item">
+                                    <span class="number">01</span>
+                                    <p>Crypto 모델은 계속해서 기술적 발전을 거듭하여 비트코인 가격 예측의 정확성을 높일 수 있습니다.
+                                    데이터를 최신화하여 Crypto 모델은 더욱 정교한 예측 성능을 갖출 것입니다.</p>
+                                </div>
+                                <div class="info-item">
+                                    <span class="number">02</span>
+                                    <p>Crypto 모델은 단순히 비트코인 가격 예측에만 국한되지 않으며, 다양한 암호화폐 및 금융 자산의 가격 예측에도 활용될 수 있습니다. 
+                                        그리하여 Crypto 모델의 영향력과 인지도는 확대될 수 있습니다.</p>
+                                </div>
+                                <div class="info-item">
+                                    <span class="number">03</span>
+                                    <p>비트코인 및 암호화폐 시장에서 Crypto 모델의 성과가 입증됨에 따라, 시장 참여자들의 신뢰도와 메시지 또한 높아질 것으로 예상됩니다. 
+                                    이에 따라 Crypto 모델의 활용도 및 영향력을 더욱 증대시킬 수 있습니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page" id="page7">
+        <div class="page7-content">
+            <div class="page page7">
+                <main>
+                    <div class="container">
+                        <div class="services-container">
+                            <div class="intro">
+                                <h2>우리 프로그램에서 제공할 서비스</h2>
+                                <hr>
+                            </div>
+                            <section class="services">
+                                <div class="service-item1">
+                                    <div class="icon1">
+                                        <i class="fa-regular fa-user"></i>
+                                    </div>
+                                    <h3>비트코인 종가 예측 서비스</h3>
+                                    <p>과거 비트코인 데이터를 활용해 LSTM 모델을 학습시키며 데이터 최신화를 통해 다음 날의 비트코인 종가를 예측합니다.</p>
+                                    <a href="#" class="learn-more">Learn More &raquo;</a>
+                                </div>
+                                <div class="service-item2">
+                                    <div class="icon2">
+                                        <i class="fa-regular fa-handshake"></i>
+                                    </div>
+                                    <h3>다양한 유저간의 소통할 수 있는 커뮤니티 서비스</h3>
+                                    <p>인공지능 모델을 다양한 유저들이 사용함에 따라 다양한 사용자 경험을 통한 인공지능 서비스를 개선할 수 있습니다.</p>
+                                    <a href="#" class="learn-more">Learn More &raquo;</a>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="image-container">
+                            <div class="service-image">
+                                <img src="{{ url_for('static', filename='images/page8.png') }}" alt="Crypto Analysis on Phone">
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page8">
+        <div class="page8-content">
+            <div class="page8-images">
+                <div class="page8-image-container">
+                    <img src="{{ url_for('static', filename='images/page8.png') }}" alt="Crypto Image 1" class="page8-crypto-image-1">
+                </div>
+                <div class="page8-image-container">
+                    <img src="{{ url_for('static', filename='images/page8.png') }}" alt="Crypto Image 2" class="page8-crypto-image-2">
+                </div>
+            </div>
+            <div class="page8-text-section">
+                <h1>Crypto 뉴스</h1>
+                <hr>
+                <div class="page8-updates">
+                    <div class="page8-update">
+                        <p>업데이트된 새로운 소식</p>
+                    </div>
+                </div>
+                <div class="page8-description">
+                    <p>저희 Crypto 서비스는 2024년 7월 6일에 실제 사용자 경험을 위한 서비스를 배포하기 시작했습니다. 
+                    Crpto 서비스를 통하여 다양한 유저간의 상호작용으로 커뮤니티의 반응을 통한 모델 성능을 향상 시킬 수 있으며
+                    시장의 변동성을 예측할 수 있습니다. 앞으로 Crpto 뉴스를 통하여 다양한 소식을 업데이트 할 것이며 인공지능 모델 성능 향상을 위한 소비자의 보이스와 니즈를 최대한 반영하기 위하여 최선을 다해 노력할 것입니다. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="page9">
+        <div class="page9-content">
+            <div class="page9-text">
+                <h1>CONTACT</h1>
+                <hr>
+                <br>
+                <p><i class="fa fa-phone"></i> +123-456-789</p>
+                <p><i class="fa fa-globe"></i> www.crypto.com</p>
+                <p><i class="fa fa-envelope"></i> gyu@crypto.com</p>
+                <p><i class="fa fa-map-marker"></i> 123 AnyWhere.St Any City ST 12345</p>
+            </div>
+            <div class="page9-images">
+                <img src="{{ url_for('static', filename='images/page9.png') }}" alt="Crypto Image">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 0) {
+                nav.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            } else {
+                nav.style.backgroundColor = 'transparent';
+            }
+        });
+        let currentPage = 1;
+        const totalPages = 9;
+        let isScrolling = false;
+        window.addEventListener('wheel', (event) => {
+            if (isScrolling) return;
+            if (event.deltaY > 0) {
+                if (currentPage < totalPages) {
+                    ++currentPage;
+                    scrollPage();
+                }
+            } else {
+                if (currentPage > 0) {
+                    --currentPage;
+                    scrollPage();
+                }
+            }
+            isScrolling = true;
+            setTimeout(() => {
+                isScrolling = false;
+            }, 2000);
+        });
+        function scrollPage() {
+            const targetPage = document.querySelector(`#page${currentPage}`);
+            if (targetPage) {
+                targetPage.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function showMenu() {
+            document.getElementById('nav-links').style.right = "0";
+        }
+        function hideMenu() {
+            document.getElementById('nav-links').style.right = "-200px";
+        }
+    </script>
+</body>
+</html>
